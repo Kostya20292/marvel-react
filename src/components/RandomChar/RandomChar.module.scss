@@ -1,73 +1,81 @@
 @use '../../style/variables' as *;
 
 .randomChar {
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  align-items: center;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
 }
 
 .block {
-    padding: 40px 35px;
-    display: grid;
-    grid-template-columns: 180px auto;
-    column-gap: 30px;
+  padding: 40px 35px;
+  display: grid;
+  grid-template-columns: 180px auto;
+  column-gap: 30px;
+  justify-content: center;
 }
 
 .img {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
 }
 
 .info {
-    display: grid;
-    grid-template-rows: minmax(29px, auto) 90px 38px;
-    row-gap: 10px;
-    padding-top: 3px;
+  display: grid;
+  grid-template-rows: minmax(29px, auto) 90px 38px;
+  row-gap: 10px;
+  padding-top: 3px;
 }
 
 .name {
-    font-weight: bold;
-    font-size: 22px;
-    line-height: 29px;
-    text-transform: uppercase;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 29px;
+  text-transform: uppercase;
 }
 
 .descr {
-    font-size: 14px;
-    line-height: 18px;
+  font-size: 14px;
+  line-height: 18px;
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 5;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  min-width: 0;
 }
 
 .btns {
-    a:nth-child(1) {
-        margin-right: 30px;
-    }
+  a:nth-child(1) {
+    margin-right: 30px;
+  }
 }
 
 .static {
-    padding: 40px 35px;
-    background-color: $dark;
-    position: relative;
+  padding: 40px 35px;
+  background-color: $dark;
+  position: relative;
 
-    button {
-        margin-top: 13px;
-    }
+  button {
+    margin-top: 13px;
+  }
 }
 
 .title {
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: -0.045em;
-    color: #FFFFFF;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.045em;
+  color: #ffffff;
 
-    &:nth-child(2) {
-        margin-top: 33px;
-    }
+  &:nth-child(2) {
+    margin-top: 33px;
+  }
 }
 
 .decoration {
-    position: absolute;
-    bottom: 14px;
-    right: -37px;
+  position: absolute;
+  bottom: 14px;
+  right: -37px;
 }

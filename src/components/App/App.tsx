@@ -7,14 +7,13 @@ import decoration from '../../assets/vision.png';
 import styles from './App.module.scss';
 import { useEffect } from 'react';
 import { useAppDispatch } from '../../store/hooks';
-import { getAllCharacters, getCharacter } from '../../store/characters/charactersThunk';
+import { getAllCharacters } from '../../store/characters/charactersThunk';
 
 const App = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getAllCharacters());
-    dispatch(getCharacter(5));
   }, [dispatch]);
 
   return (
