@@ -1,5 +1,18 @@
 @use '../../style/variables' as *;
 
+.status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+
+    svg,
+    img {
+        width: 220px;
+        height: 220px;
+    }
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 200px);

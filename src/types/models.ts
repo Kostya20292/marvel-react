@@ -1,3 +1,5 @@
+export type LoadingState = 'idle' | 'pending' | 'succeeded' | 'failed'
+
 export type MarvelResponse<T> = {
   data: {
     results: T[];

@@ -1,20 +1,17 @@
 import mjolnir from '../../assets/mjolnir.png';
-import thor from '../../assets/thor.jpeg';
 import buttonStyles from '../../style/button.module.scss';
 import styles from './RandomChar.module.scss';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { getCharacter } from '../../store/characters/charactersThunk';
 import { getRandomNumber } from '../../utils/getRandomNumber';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Spinner } from '../Spinner/Spinner';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 
 const RandomChar = () => {
   const dispatch = useAppDispatch();
   const handleClick = () => dispatch(getCharacter(getRandomNumber()));
-  const { character, loading } = useAppSelector((state) => state.characters);
-  const [erroredImageUrl, setErroredImageUrl] = useState<string | null>(null);
-  const isImageBroken = !!character && erroredImageUrl === character.imageUrl;
+  const { character, loading } = useAppSelector((state) => state.randomCharacter);
 
   useEffect(() => {
     dispatch(getCharacter(getRandomNumber()));
@@ -27,12 +24,7 @@ const RandomChar = () => {
         {loading === 'failed' && <ErrorMessage />}
         {loading === 'succeeded' && character && (
           <>
-            <img
-              src={isImageBroken ? thor : character.imageUrl}
-              alt="Random character"
-              className={styles.img}
-              onError={() => setErroredImageUrl(character.imageUrl)}
-            />
+            <img src={character.imageUrl} alt="Random character" className={styles.img} />
             <div className={styles.info}>
               <p className={styles.name}>{character.name}</p>
               <p className={styles.descr}>{character.description}</p>

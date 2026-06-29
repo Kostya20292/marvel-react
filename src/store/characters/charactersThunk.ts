@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import type { CharactersResponse } from '../../types/marvel';
+import type { CharactersResponse } from '../../types/models';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -22,7 +22,7 @@ export const getAllCharacters = createAsyncThunk<CharactersResponse, void, { rej
 );
 
 export const getCharacter = createAsyncThunk<CharactersResponse, number, { rejectValue: string }>(
-  'characters/getCharacter',
+  'randomCharacter/getCharacter',
   async (id, { rejectWithValue }) => {
     try {
       const response = await fetch(`${BASE_URL}/characters/${id}?${API_KEY}`);
