@@ -29,22 +29,26 @@ const RandomChar = () => {
               <p className={styles.name}>{character.name}</p>
               <p className={styles.descr}>{character.description}</p>
               <div className={styles.btns}>
-                <a
-                  href={character.homepageUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${buttonStyles.button} ${buttonStyles.main}`}
-                >
-                  <div className={buttonStyles.inner}>homepage</div>
-                </a>
-                <a
-                  href={character.wikiUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${buttonStyles.button} ${buttonStyles.secondary}`}
-                >
-                  <div className={buttonStyles.inner}>Wiki</div>
-                </a>
+                {character.homepageUrl && (
+                  <a
+                    href={character.homepageUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${buttonStyles.button} ${buttonStyles.main}`}
+                  >
+                    <div className={buttonStyles.inner}>homepage</div>
+                  </a>
+                )}
+                {character.wikiUrl && (
+                  <a
+                    href={character.wikiUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${buttonStyles.button} ${buttonStyles.secondary}`}
+                  >
+                    <div className={buttonStyles.inner}>Wiki</div>
+                  </a>
+                )}
               </div>
             </div>
           </>

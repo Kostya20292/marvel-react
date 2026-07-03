@@ -1,4 +1,6 @@
-export type LoadingState = 'idle' | 'pending' | 'succeeded' | 'failed'
+export type LoadingState = 'pending' | 'succeeded' | 'failed';
+
+export type IdleLoadingState = 'idle' | LoadingState;
 
 export type MarvelResponse<T> = {
   data: {
@@ -38,6 +40,15 @@ export type CharacterView = {
   imageUrl: string;
   homepageUrl: string;
   wikiUrl: string;
+};
+
+export type CharacterInfo = {
+  name: string;
+  description: string;
+  imageUrl: string;
+  homepageUrl: string;
+  wikiUrl: string;
+  comics: string[];
 };
 
 export type Comic = {

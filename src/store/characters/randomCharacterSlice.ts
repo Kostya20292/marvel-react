@@ -31,8 +31,8 @@ export const randomCharacterSlice = createSlice({
         name: character.name || 'No name for this character',
         description: character.description || 'No description for this character',
         imageUrl: getCharacterImageUrl(character.thumbnail.path, character.thumbnail.extension),
-        homepageUrl: character.urls[0]?.url || '/',
-        wikiUrl: character.urls[1]?.url || '/',
+        homepageUrl: character.urls[0]?.url || '',
+        wikiUrl: character.urls[1]?.url || '',
       };
     });
 
