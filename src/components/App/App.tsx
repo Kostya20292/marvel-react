@@ -1,7 +1,10 @@
+import { ErrorBoundary } from 'react-error-boundary';
+
 import AppHeader from '../AppHeader/AppHeader';
 import RandomChar from '../RandomChar/RandomChar';
 import CharList from '../CharList/CharList';
 import CharInfo from '../CharInfo/CharInfo';
+import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 
 import decoration from '../../assets/vision.png';
 import styles from './App.module.scss';
@@ -20,10 +23,16 @@ const App = () => {
     <div className={styles.app}>
       <AppHeader />
       <main>
-        <RandomChar />
+        <ErrorBoundary FallbackComponent={ErrorMessage}>
+          <RandomChar />
+        </ErrorBoundary>
         <div className={styles.charContent}>
-          <CharList />
-          <CharInfo />
+          <ErrorBoundary FallbackComponent={ErrorMessage}>
+            <CharList />
+          </ErrorBoundary>
+          <ErrorBoundary FallbackComponent={ErrorMessage}>
+            <CharInfo />
+          </ErrorBoundary>
         </div>
         <img className={styles.bgDecoration} src={decoration} alt="vision" />
       </main>
